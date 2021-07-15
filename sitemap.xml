@@ -104,6 +104,13 @@
 
   
   <url>
+    <loc>https://virtual-neutron.top/categories/%E5%85%B6%E4%BB%96/</loc>
+    <lastmod>2021-07-15</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://virtual-neutron.top/categories/%E4%B8%AD%E8%80%83/</loc>
     <lastmod>2021-07-15</lastmod>
     <changefreq>daily</changefreq>
@@ -118,21 +125,7 @@
   </url>
   
   <url>
-    <loc>https://virtual-neutron.top/categories/%E5%85%B6%E4%BB%96/</loc>
-    <lastmod>2021-07-15</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://virtual-neutron.top/categories/%E4%B8%AD%E8%80%83/%E6%95%B0%E5%AD%A6/</loc>
-    <lastmod>2021-07-15</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://virtual-neutron.top/categories/%E8%AF%AD%E6%96%87/</loc>
     <lastmod>2021-07-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -147,6 +140,13 @@
   
   <url>
     <loc>https://virtual-neutron.top/categories/%E5%85%83%E7%B4%A0/%E9%93%9CCu/</loc>
+    <lastmod>2021-07-15</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://virtual-neutron.top/categories/%E8%AF%AD%E6%96%87/</loc>
     <lastmod>2021-07-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
