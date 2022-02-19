@@ -1,4 +1,39 @@
-
+check = function () {
+    var d = new Date();
+    var a = String(d.getMonth() + 1)
+    if (a < 11) {
+        a = "0" + a
+    }
+    var first = String(d.getFullYear()) + a + String(d.getDate())
+    var second = window.btoa(first)
+    var third = hex_md5(second)
+    var x = 1232 - parseInt(String(d.getMonth() + 1) + String(d.getDate()))
+    var key = x / parseInt(String(d.getMonth() + 1) + String(d.getDate())) * 10000000000000
+    var key1 = String(key).substring(0, 1)
+    var keynum1 = String(key).substring(parseInt(key1) - 1, parseInt(key1))
+    var keynum2 = String(key).substring(parseInt(key1), parseInt(key1) + 1)
+    var keynum3 = String(key).substring(parseInt(key1) + 1, parseInt(key1) + 2)
+    var keynum4 = String(key).substring(parseInt(key1) + 2, parseInt(key1) + 3)
+    var password = new Array()
+    password[0] = String(third).substring(0, 4)
+    password[1] = String(third).substring(4, 8)
+    password[2] = String(third).substring(8, 12)
+    password[3] = String(third).substring(12, 16)
+    password[4] = String(third).substring(16, 20)
+    password[5] = String(third).substring(20, 24)
+    password[6] = String(third).substring(24, 28)
+    password[7] = String(third).substring(28, 32)
+    password[8] = String(third).substring(0, 4)
+    password[9] = String(third).substring(4, 8)
+    var show = password[keynum1] + password[keynum2] + password[keynum3] + password[keynum4]
+    if(document.getElementById('password1').value == show){
+        alert("密钥正确")
+        document.getElementById('lock').style.display="none"
+        document.getElementById('unlock').style.display="block"
+    }else{
+        alert("密钥错误")
+    }
+}
 click1 = function () {
     document.getElementById('paragraph1').innerHTML = ""
     document.getElementById('paragraph2').innerHTML = ""
@@ -389,3 +424,4 @@ click1 = function () {
         }
     }
 }
+    ;
