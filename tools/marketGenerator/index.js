@@ -1,6 +1,6 @@
 check = function () {
-    document.getElementById('lock').style.display="none"
-    document.getElementById('unlock').style.display="block"
+    document.getElementById('lock').style.display = "none"
+    document.getElementById('unlock').style.display = "block"
     /*var d = new Date();
     var a = String(d.getMonth() + 1)
     if (a < 11) {
@@ -36,6 +36,18 @@ check = function () {
         alert("密钥错误")
     }*/
 }
+
+j = 2
+a = function () {
+    var soureNode = document.getElementById("Ac1")
+    var clonedNode = soureNode.cloneNode(true)
+    clonedNode.setAttribute("id", "Ac" + j)
+    clonedNode.lastChild.setAttribute("id", "in" + j)
+    clonedNode.innerHTML = "<td>" + " " + "过程" + j + ":" + " " + "<input type='text' class='text' id='in" + j + "'></td>"
+    soureNode.parentNode.append(clonedNode)
+    j++
+};
+
 click1 = function () {
     document.getElementById('paragraph1').innerHTML = ""
     document.getElementById('paragraph2').innerHTML = ""
@@ -45,7 +57,6 @@ click1 = function () {
     var obj = document.getElementById("select"); //定位id
     var index = obj.selectedIndex; // 选中索引
     var text = obj.options[index].text; // 选中文本
-    var value = obj.options[index].value; // 选中值
     var name = document.getElementById("name").value
     var sname = document.getElementById("sname").value
     var place1 = document.getElementById("place1").value
@@ -53,10 +64,14 @@ click1 = function () {
     var forDo = document.getElementById("for").value
     var result = document.getElementById("result").value
     var radios = document.getElementsByName("a");
-    var in1 = document.getElementById("in1").value
-    var in2 = document.getElementById("in2").value
-    var in3 = document.getElementById("in3").value
-    var in4 = document.getElementById("in4").value
+
+
+
+
+    var value = obj.options[index].value; // 选中值
+    if (document.getElementById("place").value != "") {
+        var value = document.getElementById("place").value; // 改变      
+    }
     for (var i = 0; i < radios.length; i++) {
         if (radios[i].checked == true) {
             i++;
@@ -76,19 +91,23 @@ click1 = function () {
     if (place1 == "" && place2 == "") {
         document.getElementById('paragraph1').innerHTML = "啊偶了喔，您有部分内容未填，出现在："
         document.getElementById('paragraph5').innerHTML = "主人公<发生地点>未填写"
-        if (name == "" || sname == "" || forDo == "" || result == "" || in1 == "") {
+        if (name == "" || sname == "" || forDo == "" || result == "") {
             if (name == "" || sname == "") {
                 document.getElementById('paragraph2').innerHTML = "<主人公名字>或<营销号名字>未填写"
             }
             if (forDo == "" || result == "") {
                 document.getElementById('paragraph3').innerHTML = "主人公<起因>或<结果>未填写"
             }
-            if (in1 == "") {
-                document.getElementById('paragraph4').innerHTML = "主人公<过程>未填写"
+        }
+        for (var k = 2; k < j; k++) {
+            var tmp = "in" + k
+            var tmp2 = document.getElementById(tmp).value
+            if (tmp2 == "") {
+                document.getElementById('paragraph4').innerHTML = "过程未写全"
             }
         }
     } else {
-        if (name == "" || sname == "" || forDo == "" || result == "" || in1 == "") {
+        if (name == "" || sname == "" || forDo == "" || result == "") {
             document.getElementById('paragraph1').innerHTML = "啊偶了喔，您有部分内容未填，出现在："
             if (name == "" || sname == "") {
                 document.getElementById('paragraph2').innerHTML = "<主人公名字>或<营销号名字>未填写"
@@ -96,8 +115,12 @@ click1 = function () {
             if (forDo == "" || result == "") {
                 document.getElementById('paragraph3').innerHTML = "主人公<起因>或<结果>未填写"
             }
-            if (in1 == "") {
-                document.getElementById('paragraph4').innerHTML = "主人公<过程>未填写"
+            for (var k = 2; k < j; k++) {
+                var tmp = "in" + k
+                var tmp2 = document.getElementById(tmp).value
+                if (tmp2 == "") {
+                    document.getElementById('paragraph4').innerHTML = "过程未写全"
+                }
             }
         } else {
             //start part1
@@ -249,150 +272,72 @@ click1 = function () {
             var Drnd4 = Math.floor(Math.random() * Dlen4);
             var Dtxt4 = new Array(Dlen4);
             Dtxt4[0] = "疑惑";
-            Dtxt4[1] = "惊讶";
-            Dtxt4[2] = "可笑";
-            Dtxt4[3] = "尴尬";
-            Dtxt4[4] = "无聊";
-            Dtxt4[5] = "不解";
+            Dtxt4[1] = "有趣";
+            Dtxt4[2] = "不解";
+            Dtxt4[3] = "无聊";
+            Dtxt4[4] = "好笑";
+            Dtxt4[5] = "尴尬";
+            Dtxt4[6] = "嫉妒";
+            Dtxt4[7] = "伤心";
+            Dtxt4[8] = "恐怖";
+            Dtxt4[9] = "害怕";
             //end
             var part4 = txt4[rnd4] + place1 + place2 + "的一个" + value + "中" + Atxt4[Arnd4] + Btxt4 + "，" + Ctxt4 + "的名字是" + name + "，这位" + Btxt4 + "今天做的事情令小编十分的" + Dtxt4[Drnd4] + ":" + forDo + "。"
             //end ph4
             //start ph5
-            var Indexlen = 2;
-            var Indexrnd = Math.floor(Math.random() * Indexlen);
-            var Indextxt = new Array(Indexlen);
-            Indextxt[0] = "先是";
-            Indextxt[1] = "首先";
-            //start part1
-            var len5 = 5;
-            var rnd5 = Math.floor(Math.random() * len5);
-            var txt5 = new Array(len5);
-            txt5[0] = "整起了";
-            txt5[1] = "干起了";
-            txt5[2] = "弄起了";
-            txt5[3] = "做起了";
-            txt5[4] = "搞起了";
-            //end part1
-            //start part2
-            var Alen5 = 4;
-            var Arnd5 = Math.floor(Math.random() * Alen5);
-            var Atxt5 = new Array(Alen5);
-            Atxt5[0] = "然后";
-            Atxt5[1] = "接下来";
-            Atxt5[2] = "接着";
-            Atxt5[3] = "紧接着";
-            //end part2
-            //万能感情机器
-            var Blen5 = 10;
-            var Brnd5 = Math.floor(Math.random() * Blen5);
-            var Btxt5 = new Array(Blen5);
-            Btxt5[0] = "疑惑";
-            Btxt5[1] = "有趣";
-            Btxt5[2] = "不解";
-            Btxt5[3] = "无聊";
-            Btxt5[4] = "好笑";
-            Btxt5[5] = "尴尬";
-            Btxt5[6] = "嫉妒";
-            Btxt5[7] = "伤心";
-            Btxt5[8] = "恐怖";
-            Btxt5[9] = "害怕";
-            var part5_1 = "这位" + Btxt4 + Indextxt[Indexrnd] + txt5[rnd5] + in1 + "的事情，这让小编感到十分的" + Btxt5[Brnd5] + "。"
-            len5 = 5
-            rnd5 = Math.floor(Math.random() * len5);
-            txt5 = Array(len5);
-            txt5[0] = "整起了";
-            txt5[1] = "干起了";
-            txt5[2] = "弄起了";
-            txt5[3] = "做起了";
-            txt5[4] = "搞起了";
-            Alen5 = 4
-            Arnd5 = Math.floor(Math.random() * Alen5);
-            Atxt5 = Array(Alen5);
-            Atxt5[0] = "然后";
-            Atxt5[1] = "接下来";
-            Atxt5[2] = "接着";
-            Atxt5[3] = "紧接着";
-            Blen5 = 10
-            Brnd5 = Math.floor(Math.random() * Blen5);
-            Btxt5 = Array(Blen5);
-            Btxt5[0] = "疑惑";
-            Btxt5[1] = "有趣";
-            Btxt5[2] = "不解";
-            Btxt5[3] = "无聊";
-            Btxt5[4] = "好笑";
-            Btxt5[5] = "尴尬";
-            Btxt5[6] = "嫉妒";
-            Btxt5[7] = "伤心";
-            Btxt5[8] = "恐怖";
-            Btxt5[9] = "害怕";
-            var part5_2 = Atxt5[Arnd5] + Btxt4 + "又" + txt5[rnd5] + in2 + "的事情，这让小编感到十分的" + Btxt5[Brnd5] + "。"
-            if (in2 == "") {
-                part5_2 = ""
+
+            if (document.getElementById("in1").value == "") {
+                var part5_1 = ""
+            } else {
+                for (var k = 1; k < j; k++) {
+                    var tmp = "in" + k
+                    var tmp2 = document.getElementById(tmp).value
+                    var Indexlen = 2;
+                    var Indexrnd = Math.floor(Math.random() * Indexlen);
+                    var Indextxt = new Array(Indexlen);
+                    Indextxt[0] = "先是";
+                    Indextxt[1] = "首先";
+                    //start part1
+                    var len5 = 5;
+                    var rnd5 = Math.floor(Math.random() * len5);
+                    var txt5 = new Array(len5);
+                    txt5[0] = "整起了";
+                    txt5[1] = "干起了";
+                    txt5[2] = "弄起了";
+                    txt5[3] = "做起了";
+                    txt5[4] = "搞起了";
+                    //end part1
+                    //start part2
+                    var Alen5 = 4;
+                    var Arnd5 = Math.floor(Math.random() * Alen5);
+                    var Atxt5 = new Array(Alen5);
+                    Atxt5[0] = "然后";
+                    Atxt5[1] = "接下来";
+                    Atxt5[2] = "接着";
+                    Atxt5[3] = "紧接着";
+                    //end part2
+                    //万能感情机器
+                    var Blen5 = 10;
+                    var Brnd5 = Math.floor(Math.random() * Blen5);
+                    var Btxt5 = new Array(Blen5);
+                    Btxt5[0] = "疑惑";
+                    Btxt5[1] = "有趣";
+                    Btxt5[2] = "不解";
+                    Btxt5[3] = "无聊";
+                    Btxt5[4] = "好笑";
+                    Btxt5[5] = "尴尬";
+                    Btxt5[6] = "嫉妒";
+                    Btxt5[7] = "伤心";
+                    Btxt5[8] = "恐怖";
+                    Btxt5[9] = "害怕";
+                    if (k == 1) {
+                        var part5_1 = "这位" + Btxt4 + Indextxt[Indexrnd] + txt5[rnd5] + tmp2 + "的事情，这让小编感到十分的" + Btxt5[Brnd5] + "。"
+                    } else {
+                        part5_1 = part5_1 + Atxt5[Arnd5] + "这位" + Btxt4 + txt5[rnd5] + tmp2 + "的事情，这让小编感到十分的" + Btxt5[Brnd5] + "。"
+                    }
+                }
             }
-            len5 = 5
-            rnd5 = Math.floor(Math.random() * len5);
-            txt5 = Array(len5);
-            txt5[0] = "整起了";
-            txt5[1] = "干起了";
-            txt5[2] = "弄起了";
-            txt5[3] = "做起了";
-            txt5[4] = "搞起了";
-            Alen5 = 4
-            Arnd5 = Math.floor(Math.random() * Alen5);
-            Atxt5 = Array(Alen5);
-            Atxt5[0] = "然后";
-            Atxt5[1] = "接下来";
-            Atxt5[2] = "接着";
-            Atxt5[3] = "紧接着";
-            Blen5 = 10
-            Brnd5 = Math.floor(Math.random() * Blen5);
-            Btxt5 = Array(Blen5);
-            Btxt5[0] = "疑惑";
-            Btxt5[1] = "有趣";
-            Btxt5[2] = "不解";
-            Btxt5[3] = "无聊";
-            Btxt5[4] = "好笑";
-            Btxt5[5] = "尴尬";
-            Btxt5[6] = "嫉妒";
-            Btxt5[7] = "伤心";
-            Btxt5[8] = "恐怖";
-            Btxt5[9] = "害怕";
-            var part5_3 = Atxt5[Arnd5] + "这位" + Btxt4 + txt5[rnd5] + in3 + "的事情，这让小编感到十分的" + Btxt5[Brnd5] + "。"
-            if (in3 == "") {
-                part5_3 = ""
-            }
-            len5 = 5
-            rnd5 = Math.floor(Math.random() * len5);
-            txt5 = Array(len5);
-            txt5[0] = "整起了";
-            txt5[1] = "干起了";
-            txt5[2] = "弄起了";
-            txt5[3] = "做起了";
-            txt5[4] = "搞起了";
-            Alen5 = 4
-            Arnd5 = Math.floor(Math.random() * Alen5);
-            Atxt5 = Array(Alen5);
-            Atxt5[0] = "然后";
-            Atxt5[1] = "接下来";
-            Atxt5[2] = "接着";
-            Atxt5[3] = "紧接着";
-            Blen5 = 10
-            Brnd5 = Math.floor(Math.random() * Blen5);
-            Btxt5 = Array(Blen5);
-            Btxt5[0] = "疑惑";
-            Btxt5[1] = "有趣";
-            Btxt5[2] = "不解";
-            Btxt5[3] = "无聊";
-            Btxt5[4] = "好笑";
-            Btxt5[5] = "尴尬";
-            Btxt5[6] = "嫉妒";
-            Btxt5[7] = "伤心";
-            Btxt5[8] = "恐怖";
-            Btxt5[9] = "害怕";
-            var part5_4 = Atxt5[Arnd5] + Btxt4 + "开始" + txt5[rnd5] + in4 + "的事情，这让小编感到十分的" + Btxt5[Brnd5] + "。"
-            if (in4 == "") {
-                part5_4 = ""
-            }
+
             Alen5 = 4
             Arnd5 = Math.floor(Math.random() * Alen5);
             Atxt5 = Array(Alen5);
@@ -415,7 +360,7 @@ click1 = function () {
             Btxt5[8] = "恐怖";
             Btxt5[9] = "害怕";
             var end_part = "不得不说国外的生活真是令我十分" + Btxt5[Brnd5] + "呢。"
-            var part5 = part5_1 + part5_2 + part5_3 + part5_4 + part5_5 + end_part
+            var part5 = part5_1 + part5_5 + end_part
             //end ph5
             var part6 = "好了今天的视频就到这里，" + part2 + "我们下期再见吧。"
             document.getElementById('paragraph1').innerHTML = part1 + sname + "，" + part2;
@@ -426,4 +371,3 @@ click1 = function () {
         }
     }
 }
-    ;

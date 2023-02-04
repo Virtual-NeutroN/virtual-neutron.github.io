@@ -7,7 +7,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://virtual-neutron.top/tools/2.jpg">
 <meta property="article:published_time" content="2022-01-27T13:53:40.000Z">
-<meta property="article:modified_time" content="2023-01-24T11:43:50.055Z">
+<meta property="article:modified_time" content="2023-02-01T15:29:18.381Z">
 <meta property="article:author" content="Virtual_NeutroN">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://virtual-neutron.top/tools/2.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://virtual-neutron.top/tools/marketGenerator/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
@@ -57,7 +57,7 @@
   isHome: false,
   isHighlightShrink: false,
   isToc: false,
-  postUpdate: '2023-01-24 19:43:50'
+  postUpdate: '2023-02-01 23:29:18'
 }</script><noscript><style type="text/css">
   #nav {
     opacity: 1
@@ -205,16 +205,16 @@
         <option>山脉</option>
         <option>厕所</option>
     </select>
-</td><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="设置-3"><h2>人物目的与结果</h2>
+</td>
+
+<td>或者自己填写: <input type="text" class="text" name="place" id="place"></td><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="设置-3"><h2>人物目的与结果</h2>
 <td>目的: <input type="text" class="text" name="for" id="for"></td>
 <td>结果: <input type="text" class="text" name="result" id="result"></td>
 <h2>人物经过</h2>
-<div class="note warning simple"><p>若经过只有一个，则后面三个无需填写，以此类推</p>
+<div class="note warning simple"><p>若没有，可以不写</p>
 </div>
-<td>过程1: <input type="text" class="text" id="in1"></td>
-<td>过程2: <input type="text" class="text" id="in2"></td>
-<td>过程3: <input type="text" class="text" id="in3"></td>
-<td>过程4: <input type="text" class="text" id="in4"></td><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="设置-4"><p><a><h2 onclick="click1()">生成</h2></a></p>
+<div id="Ac1"><td>过程1: <input type="text" class="text" id="in1"></td></div>
+<a><h2 onclick="a()">点击此处添加新的过程</h2></a><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="设置-4"><p><a><h2 onclick="click1()">生成</h2></a></p>
 <p id=paragraph1></p>
 <p id=paragraph2></p>
 <p id=paragraph3></p>
@@ -230,7 +230,36 @@
 <input type="radio" name="b" onclick="person()">人
 <h2>初始化设置</h2>
 <td>事/物/人名称: <input type="text" id="anyname" class="text"></td>
-<td>营销号姓名: <input type="text" id="sname1" class="text"></td><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="设置-2"><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="设置-3"><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="设置-4"><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="设置-5"><p><a><h2 onclick="click2()">生成</h2></a></p><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div></div><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="营销号类型-3"><h2>事理营销号</h2><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="营销号类型-4"><h2>音乐营销号</h2><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="营销号类型-5"><h2>排行营销号</h2><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div></div>
+<td>营销号姓名: <input type="text" id="sname1" class="text"></td><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="设置-2"><div class="note warning simple"><p>最少包含事件的定义，请不要加入 “是” 等助动词，您只用输入有意义的内容即可</p>
+</div>
+<div class="matter">
+    <h2>基础</h2>
+    <td>原事件名称: <input type="text" class="text" name="oMatter" id="oMatter"></td>
+    <td>下定义(就是什么什么): <input type="text" class="text" name="defind" id="defind"></td>
+    <h2>高级</h2>
+    <td>谁发起/引起/提出：<input type="text" class="text" id="whoM">
+    <td>目的 <input type="text" class="text" id="purposeM">
+    <div id="Ac1"><td>过程1: <input type="text" class="text" id="in1"></td></div>
+    <a><h2 onclick="bM()">点击此处添加新的过程</h2></a>
+</div><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="设置-3"><div class="thing">
+    <h2>基础</h2>
+    <td>原物品名称: <input type="text" class="text" name="oThing" id="oThing"></td>
+    <td>下定义(就是什么什么): <input type="text" class="text" name="defind" id="defind"></td>
+    <h2>高级</h2>
+    <td>谁制作/提出：<input type="text" class="text" id="whoT">
+    <td>目的 <input type="text" class="text" id="purposeT">
+    <div id="Ac1"><td>过程1: <input type="text" class="text" id="in1"></td></div>
+    <a><h2 onclick="bT()">点击此处添加新的过程</h2></a>
+</div><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="设置-4"><div class="thing">
+    <h2>基础</h2>
+    <td>人物名称: <input type="text" class="text" name="oThing" id="oThing"></td>
+    <td>下定义(干什么的): <input type="text" class="text" name="defind" id="defind"></td>
+    <h2>高级</h2>
+    <td>谁制作/提出：<input type="text" class="text" id="whoT">
+    <td>目的 <input type="text" class="text" id="purposeT">
+    <div id="Ac1"><td>过程1: <input type="text" class="text" id="in1"></td></div>
+    <a><h2 onclick="bT()">点击此处添加新的过程</h2></a>
+</div><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="设置-5"><p><a><h2 onclick="click2()">生成</h2></a></p><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div></div><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="营销号类型-3"><h2>事理营销号</h2><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="营销号类型-4"><h2>音乐营销号</h2><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="营销号类型-5"><h2>排行营销号</h2><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div></div>
 </div>
 
 <style>
