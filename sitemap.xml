@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://virtual-neutron.top/2023/04/10/%E6%9C%80%E6%96%B0%E6%9C%80%E7%83%AD%E7%9A%84%E5%AD%90%E9%A1%B5%E9%9D%A2%E6%9D%A5%E5%92%AF/</loc>
+    
+    <lastmod>2023-04-10</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://virtual-neutron.top/stories/1/index.html</loc>
     
     <lastmod>2023-02-04</lastmod>
@@ -298,7 +305,7 @@
 
   <url>
     <loc>https://virtual-neutron.top/</loc>
-    <lastmod>2023-02-04</lastmod>
+    <lastmod>2023-04-10</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -308,21 +315,21 @@
   
   <url>
     <loc>https://virtual-neutron.top/categories/%E5%AE%9E%E7%89%A9%E5%85%83%E7%B4%A0%E5%91%A8%E6%9C%9F%E8%A1%A8/</loc>
-    <lastmod>2023-02-04</lastmod>
+    <lastmod>2023-04-10</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://virtual-neutron.top/categories/%E7%BD%91%E7%AB%99%E7%9B%B8%E5%85%B3/</loc>
-    <lastmod>2023-02-04</lastmod>
+    <lastmod>2023-04-10</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://virtual-neutron.top/categories/%E9%87%8D%E5%90%AF%E4%B8%87%E7%89%A9/</loc>
-    <lastmod>2023-02-04</lastmod>
+    <lastmod>2023-04-10</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
