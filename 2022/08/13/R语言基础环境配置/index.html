@@ -1,0 +1,356 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>R语言基础环境配置 | Virtual_NeutroN的整活区</title><meta name="author" content="Virtual_NeutroN"><meta name="copyright" content="Virtual_NeutroN"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Hey阿达西！R语言这货啊，就是个统计界的老登，专治各种数据不服！你想象一下：当你面对Excel表格像看天书的时候，R抄起键盘就能把数据拧成麻花——算平均数？画骚气折线图？预测明天奶茶店会不会爆单？它连眼皮都不带眨的！ 这家伙长得挺猎奇，动不动就爱用”&lt;-“这种火星符号赋值（对，就是那个长得像鼻孔朝左的箭头）。刚开始你可能想砸键盘：”为啥不用等号？！”，但用久了就会发现…其实还是想砸键盘">
+<meta property="og:type" content="article">
+<meta property="og:title" content="R语言基础环境配置">
+<meta property="og:url" content="https://virtual-neutron.top/2022/08/13/R%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/index.html">
+<meta property="og:site_name" content="Virtual_NeutroN的整活区">
+<meta property="og:description" content="Hey阿达西！R语言这货啊，就是个统计界的老登，专治各种数据不服！你想象一下：当你面对Excel表格像看天书的时候，R抄起键盘就能把数据拧成麻花——算平均数？画骚气折线图？预测明天奶茶店会不会爆单？它连眼皮都不带眨的！ 这家伙长得挺猎奇，动不动就爱用”&lt;-“这种火星符号赋值（对，就是那个长得像鼻孔朝左的箭头）。刚开始你可能想砸键盘：”为啥不用等号？！”，但用久了就会发现…其实还是想砸键盘">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://virtual-neutron.top/img/20250321/bg.png">
+<meta property="article:published_time" content="2022-08-13T12:01:46.000Z">
+<meta property="article:modified_time" content="2025-03-21T05:20:50.499Z">
+<meta property="article:author" content="Virtual_NeutroN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://virtual-neutron.top/img/20250321/bg.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://virtual-neutron.top/2022/08/13/R%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: {"limitDay":500,"position":"top","messagePrev":"这篇文章发表到现在已经过去了","messageNext":"天，你正在考古，吃我一记洛阳铲！"},
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":50,"languages":{"author":"作者: Virtual_NeutroN","link":"链接: ","source":"来源: Virtual_NeutroN的整活区","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#4C4948","bgDark":"#121212","position":"bottom-left"},
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: true,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'R语言基础环境配置',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2025-03-21 13:20:50'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if (GLOBAL_CONFIG_SITE.isHome && /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    document.addEventListener('pjax:complete', detectApple)})(window)</script><link rel="stylesheet" href="APlayer.min.css"><div id="aplayer"></div><script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js" async></script><!-- hexo injector head_end start --><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-card-history/baiduhistory/css/main.css"><!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Virtual_NeutroN的整活区" type="application/atom+xml">
+</head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/head_portrait.jpg" onerror="onerror=null;src='null'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">9</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-laptop-file"></i><span> 硬核</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/elements/"><i class="fa-fw fas fa-flask"></i><span> 实物元素周期表</span></a></li><li><a class="site-page child" href="/school/"><i class="fa-fw fas fa-school"></i><span> 斗一往事</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-coffee"></i><span> 生活</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> 链接</span></a></li><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 我的名字</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/stories/"><i class="fa-fw fas fa-file"></i><span> 重启万物</span></a></div><div class="menus_item"><a class="site-page" href="/tools/"><i class="fa-fw fas fa-wrench"></i><span> 小工具</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/20250321/bg.png')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Virtual_NeutroN的整活区</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-laptop-file"></i><span> 硬核</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/elements/"><i class="fa-fw fas fa-flask"></i><span> 实物元素周期表</span></a></li><li><a class="site-page child" href="/school/"><i class="fa-fw fas fa-school"></i><span> 斗一往事</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-coffee"></i><span> 生活</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> 链接</span></a></li><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 我的名字</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/stories/"><i class="fa-fw fas fa-file"></i><span> 重启万物</span></a></div><div class="menus_item"><a class="site-page" href="/tools/"><i class="fa-fw fas fa-wrench"></i><span> 小工具</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">R语言基础环境配置</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-08-13T12:01:46.000Z" title="发表于 2022-08-13 20:01:46">2022-08-13</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-03-21T05:20:50.499Z" title="更新于 2025-03-21 13:20:50">2025-03-21</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%BD%91%E7%AB%99%E7%9B%B8%E5%85%B3/">网站相关</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">970</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>3分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="R语言基础环境配置"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><blockquote>
+<ul>
+<li>Hey阿达西！R语言这货啊，就是个统计界的老登，专治各种数据不服！你想象一下：当你面对Excel表格像看天书的时候，R抄起键盘就能把数据拧成麻花——算平均数？画骚气折线图？预测明天奶茶店会不会爆单？它连眼皮都不带眨的！</li>
+<li>这家伙长得挺猎奇，动不动就爱用”&lt;-“这种火星符号赋值（对，就是那个长得像鼻孔朝左的箭头）。刚开始你可能想砸键盘：”为啥不用等号？！”，但用久了就会发现…其实还是想砸键盘（，但至少能跟它混熟了！最骚的是它的画图能力！ggplot2包一出手（本人不知道是什么），什么柱状图热力图，分分钟给你整得比网红自拍还精致。老板看了直呼”拿来吧你”，转头就塞进PPT里装B。</li>
+</ul>
+</blockquote>
+<h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><h2 id="VSCODE-安装"><a href="#VSCODE-安装" class="headerlink" title="VSCODE 安装"></a>VSCODE 安装</h2><ol>
+<li>进入Visual Studio Code官网<a class="btn-beautify button--animated block center larger" target="_blank" rel="noopener" href="https://code.visualstudio.com/" 
+  title="点我进入"><i class="far fa-hand-point-right"></i><span>点我进入</span></a></li>
+<li>直接点击网页上大大的download</li>
+<li>打开安装程序，无脑一直next<div class="note warning simple"><p>如果您对文件安放位置有要求，请根据自己的需求安装位置</p>
+</div></li>
+<li>安装完毕打开软件，开始配置中文</li>
+</ol>
+<h2 id="VSCODE-配置"><a href="#VSCODE-配置" class="headerlink" title="VSCODE 配置"></a>VSCODE 配置</h2><ol>
+<li>进入页面之后，按下ctrl+shift+p</li>
+<li>在弹出的搜索框中输入configure language，然后选择搜索出来的Configure Display Language</li>
+<li>此时看向左边弹出的栏，找到简体中文，然后install，等待安装完毕</li>
+<li>重启软件（大退，结束进程那种），即可</li>
+</ol>
+<h2 id="R语言环境安装"><a href="#R语言环境安装" class="headerlink" title="R语言环境安装"></a>R语言环境安装</h2><ol>
+<li>进入R-project官网下载<a class="btn-beautify button--animated block center larger" target="_blank" rel="noopener" href="https://mirrors.tuna.tsinghua.edu.cn/CRAN/" 
+  title="点我直接进入下载界面（这里其实用的是清华镜像网站）"><i class="far fa-hand-point-right"></i><span>点我直接进入下载界面（这里其实用的是清华镜像网站）</span></a></li>
+<li>直接点击网页上大大的download</li>
+<li>打开安装程序，无脑一直next<div class="note warning simple"><p>如果您对文件安放位置有要求，请根据自己的需求安装位置</p>
+</div></li>
+<li>安装完毕，环境配置成功</li>
+</ol>
+<h2 id="VSCODE-部署-R"><a href="#VSCODE-部署-R" class="headerlink" title="VSCODE 部署 R"></a>VSCODE 部署 R</h2><ol>
+<li>打开VSCODE，进入页面之后，按下ctrl+shift+x</li>
+<li>在搜索栏中搜索R，选择第一个（见下图），点击install</li>
+<li>安装好后在搜索栏中搜索R Debugger，选择第一个（见下图），点击install<br><img src="/img/20250321/20250321-125331.png" alt="操作案例"></li>
+<li>全部安装完毕后重启VSCODE</li>
+</ol>
+<h2 id="创建工程文件夹"><a href="#创建工程文件夹" class="headerlink" title="创建工程文件夹"></a>创建工程文件夹</h2><ol>
+<li>电脑上找一个安放你R语言文件的地方，新建文件夹</li>
+<li>打开VSCODE，选择上方菜单栏 文件-&gt;打开文件夹-&gt;选择你刚刚新建的文件夹</li>
+<li>选择上方菜单栏 文件-&gt;新建文本文件-&gt;点击选择语言-&gt;选择R</li>
+<li>保存文件（可以ctrl+s），把这个文件放入你刚刚新建的文件夹里面</li>
+</ol>
+<h2 id="Rdebugger-安装vscdebugger"><a href="#Rdebugger-安装vscdebugger" class="headerlink" title="Rdebugger 安装vscdebugger"></a>Rdebugger 安装vscdebugger</h2><ol>
+<li>回到VSCODE页面，按下ctrl+shift+p</li>
+<li>在弹出的搜索框中输入r.debugger.updateRPackage，选择第一个选项</li>
+<li>等待安装，大概率网会不好，多下几次，失败了就重试，直到这几个都能成功安装<br><img src="/img/20250321/20250321-130232.png" alt="操作案例"><br><img src="/img/20250321/20250321-130319.png" alt="操作案例"></li>
+<li>至此，全部部署任务结束</li>
+</ol>
+<h1 id="检测安装程序是否完整"><a href="#检测安装程序是否完整" class="headerlink" title="检测安装程序是否完整"></a>检测安装程序是否完整</h1><ol>
+<li>对你刚刚新建的文本文件进行编辑</li>
+<li>输入下面代码：<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 创建一个数值向量（类似JS的数组）</span></span><br><span class="line">numbers &lt;- <span class="built_in">c</span>(<span class="number">3</span>, <span class="number">6</span>, <span class="number">9</span>, <span class="number">12</span>, <span class="number">15</span>) <span class="comment"># &lt;- 是赋值符号，也可以用 = </span></span><br><span class="line">cat(numbers) <span class="comment"># 输出结果</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 计算平均值和总和（R内置函数，无需手动循环）</span></span><br><span class="line">avg &lt;- mean(numbers)</span><br><span class="line">total &lt;- <span class="built_in">sum</span>(numbers)</span><br><span class="line">cat(<span class="string">&quot;平均值:&quot;</span>, avg, <span class="string">&quot;\n总和:&quot;</span>, total) <span class="comment"># 输出结果</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用循环和条件判断</span></span><br><span class="line"><span class="keyword">for</span> (num <span class="keyword">in</span> numbers) &#123;</span><br><span class="line">  <span class="keyword">if</span> (num %% <span class="number">2</span> == <span class="number">0</span>) &#123;</span><br><span class="line">    cat(num, <span class="string">&quot;是偶数\n&quot;</span>)<span class="comment"># 输出结果</span></span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    cat(num, <span class="string">&quot;是奇数\n&quot;</span>)<span class="comment"># 输出结果</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>保存（ctrl+s），然后点击运行-&gt;启用调式-&gt;一般默认选择第一个</li>
+<li>默认会弹出一个调试窗口，点击调试控制台，观察输出</li>
+<li>比对图片输出，若没有报错，即可认为安装完整<br><img src="/img/20250321/20250321-131758.png" alt="操作案例"></li>
+</ol>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Virtual_NeutroN</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://virtual-neutron.top/2022/08/13/R%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/">https://virtual-neutron.top/2022/08/13/R语言基础环境配置/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://virtual-neutron.top" target="_blank">Virtual_NeutroN的整活区</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="/img/20250321/bg.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button button--animated"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/img/reward.png" target="_blank"><img class="post-qr-code-img" src="/img/reward.png" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2022/08/19/%E9%87%8D%E5%90%AF%E4%B8%87%E7%89%A9/"><img class="prev-cover" src="/stories/1.webp" onerror="onerror=null;src='/null'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">Restarti ĉion en la mondo-重启万物</div></div></a></div><div class="next-post pull-right"><a href="/2022/08/13/%E6%B5%8B%E8%AF%95md%E9%A1%B5%E9%9D%A2/"><img class="next-cover" src="/img/20220813/banner.jpg" onerror="onerror=null;src='/null'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">测试md页面</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/head_portrait.jpg" onerror="this.onerror=null;this.src='/null'" alt="avatar"/></div><div class="author-info__name">Virtual_NeutroN</div><div class="author-info__description">没什么说的</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">9</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/Virtual-NeutroN/"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">兄弟们，网站还在建设(建了两年还在建设的屑)，大家有什么意见或建议，欢迎前往 https://space.bilibili.com/313758599/ 私信轰炸我</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%89%E8%A3%85"><span class="toc-number">1.</span> <span class="toc-text">安装</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#VSCODE-%E5%AE%89%E8%A3%85"><span class="toc-number">1.1.</span> <span class="toc-text">VSCODE 安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#VSCODE-%E9%85%8D%E7%BD%AE"><span class="toc-number">1.2.</span> <span class="toc-text">VSCODE 配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#R%E8%AF%AD%E8%A8%80%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85"><span class="toc-number">1.3.</span> <span class="toc-text">R语言环境安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#VSCODE-%E9%83%A8%E7%BD%B2-R"><span class="toc-number">1.4.</span> <span class="toc-text">VSCODE 部署 R</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E5%B7%A5%E7%A8%8B%E6%96%87%E4%BB%B6%E5%A4%B9"><span class="toc-number">1.5.</span> <span class="toc-text">创建工程文件夹</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Rdebugger-%E5%AE%89%E8%A3%85vscdebugger"><span class="toc-number">1.6.</span> <span class="toc-text">Rdebugger 安装vscdebugger</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%A3%80%E6%B5%8B%E5%AE%89%E8%A3%85%E7%A8%8B%E5%BA%8F%E6%98%AF%E5%90%A6%E5%AE%8C%E6%95%B4"><span class="toc-number">2.</span> <span class="toc-text">检测安装程序是否完整</span></a></li></ol></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2025 By Virtual_NeutroN</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">感谢Hakon Wium Lie(维姆莱)和Bert Bos(伯特·波斯)，感谢Brendan Eich(布兰登·艾奇)，感谢Tim Berners-Lee(蒂姆·伯纳斯·李)和Daniel W.Connolly，如果没有他们，我怎么会站在这里！最后为大家带来一首我的成名曲《热爱100000005℃的你》，希望大家喜欢！</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script>var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',preloader.endLoading())</script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"]],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.2
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, ''],
+        insertScript: [200, () => {
+          document.querySelectorAll('mjx-container:not\([display]\)').forEach(node => {
+            const target = node.parentNode
+            if (target.nodeName.toLowerCase() === 'li') {
+              target.parentNode.classList.add('has-jax')
+            } else {
+              target.classList.add('has-jax')
+            }
+          });
+        }, '', false]
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typeset()
+}</script></div><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = true;
+POWERMODE.mobile = true;
+document.body.addEventListener('input', POWERMODE);
+</script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/meting@1.2/dist/Meting.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = [
+  'title',
+  '#config-diff',
+  '#body-wrap',
+  '#rightside-config-hide',
+  '#rightside-config-show',
+  '.js-pjax'
+]
+
+if (false) {
+  pjaxSelectors.unshift('meta[property="og:image"]', 'meta[property="og:title"]', 'meta[property="og:url"]')
+}
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener scroll 
+  window.removeEventListener('scroll', window.tocScrollFn)
+  window.removeEventListener('scroll', scrollCollect)
+
+  typeof preloader === 'object' && preloader.initLoading()
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // Analytics
+  if (false) {
+    MtaH5.pgv()
+  }
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+
+  typeof preloader === 'object' && preloader.endLoading()
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><!-- hexo injector body_end start --><script data-pjax>function history_calendar_injector_config(){
+                var parent_div_git = document.getElementsByClassName('sticky_layout')[0];
+                var item_html = '<div class="card-widget card-history"><div class="card-content"><div class="item-headline"><i class="fas fa-clock fa-spin"></i><span>那年今日</span></div><div id="history-baidu" style="height: 100px;overflow: hidden"><div class="history_swiper-container" id="history-container" style="width: 100%;height: 100%"><div class="swiper-wrapper" id="history_container_wrapper" style="height:20px"></div></div></div></div>';
+                console.log('已挂载history_calendar')
+                // parent_div_git.innerHTML=item_html+parent_div_git.innerHTML // 无报错，但不影响使用(支持pjax跳转)
+                parent_div_git.insertAdjacentHTML("afterbegin",item_html) // 有报错，但不影响使用(支持pjax跳转)
+            }if( document.getElementsByClassName('sticky_layout')[0] && (location.pathname ==='all'|| 'all' ==='all')){
+
+            history_calendar_injector_config()
+        } </script><script data-pjax  src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script><script data-pjax src="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-card-history/baiduhistory/js/main.js"></script><!-- hexo injector body_end end --></body></html>
